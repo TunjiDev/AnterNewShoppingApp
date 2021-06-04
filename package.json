@@ -1,0 +1,14 @@
+{
+  "name": "hebe",
+  "version": "1.0.0",
+  "description": "Land page for Hebe",
+  "main": "index.js",
+  "scripts": {
+   "start":"node-sass sass/main.scss css/style.css"
+  },
+  "author": "Philip",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^6.0.0"
+  }
+}

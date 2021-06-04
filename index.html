@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="image/logo.png">
+    <title>Document</title>
+    <script defer src="https://checkout.flutterwave.com/v3.js"></script>
+    <script defer type="module" src="./js/controller.js"></script>
+</head>
+<body>
+    <div class="header2">
+        <div class="header">
+            <div class="headerSubDiv1">
+                <div class="searchDiv">
+                    <div id='takeSearch'>Search By Brand or Category
+                        <div class="searchType hidden">
+                            <div class="type" id="brand">Brand(Nike, Adidas...)</div>
+                            <div class="type" id="category">Category(Pants, Shirts...)</div>
+                        </div>
+                    </div>
+                    <input type="text" placeholder="Search"  class="hidden" id="searchInput">
+                    <button class="header__search__button" id="search">
+                        <svg class="header__search__icon">
+                            <use xlink:href="img/sprite.svg#icon-search"></use>
+                        </svg>
+                    </button>
+                    <button class='hidden' id="search--by--type">Search By type</button>
+                </div>
+            </div>
+            <!-- <div class="header__search1">
+                <form action="#" class="header__search">
+                    <input type="text" class="header__search__input" placeholder="Search">
+                    <button class="header__search__button">
+                        <svg class="header__search__icon">
+                            <use xlink:href="img/sprite.svg#icon-search"></use>
+                        </svg>
+                    </button>
+                </form>
+                
+            </div> -->
+            <div class="headerSubDiv2">
+           
+                <div class="header__login" id="logInBtn">LOG IN </div>
+              
+                <div class="header__login2" id="signUp">CREATE ACCOUNT</div>
+
+                <div class="header__login hidden" id="myAccDiv">MY ACCOUNT </div>
+              
+                <div class="header__login2 hidden" id="logOutDiv">LOG OUT</div>
+            </div>
+            
+        </div>
+
+        <!-- <div id='takeSearch' class="header__search"> Search by Brand or Category </div>
+                <input type="text" class="header__search__input hidden" id='searchInput' placeholder="Search">
+                <div class="header__search1 searchType hidden">
+                    <div class="type" id='brand'>By Brand(Adidas, Nike...)</div>
+                    <div class="type" id='brand'>By Category(Shirts, Pants...)</div>
+                </div>
+                <button class="header__search__button">
+                    <svg class="header__search__icon">
+                        <use xlink:href="img/sprite.svg#icon-search"></use>
+                    </svg>
+                <button class="header__search__button"></button>
+                    
+                </button> -->
+       
+        <div class="nav">
+            <div class="img">
+                <div class="myCart display">
+                    <svg class="icon1">
+                        <use xlink:href="img/sprite.svg#icon-cart"></use>
+                    </svg>
+                </div>
+                <div class="img1">
+                    <img src="img/logo (1).png" class="img1" alt="" >
+                </div>
+               
+    
+                <div class="dropdownmenu cartDropdown display">
+                   
+                    <div id="menuToggle">
+                        <input type="checkbox" />
+                         <span></span>
+                         <span></span>
+                         <span></span>
+                           
+                            <ul id="menu">
+                            
+                             <li class="shop"><a href="#">SHOP</a></li>
+                             <li class="shop"><a href="#">black-friday</a></li>
+                             <li class="shop"><a href="#">CATEGORYS</a></li>
+                             <li class="shop"><a href="#" >CONTACT US</a></li>
+                           </ul>
+                   </div>
+                </div>
+                <div class="big-screen display2">
+                    <div class="big-screen__childs">SHOP</div>
+                    <div class="big-screen__childs">Black-Friday</div>
+                    <div class="big-screen__childs">CATEGORY</div>
+                    <div class="big-screen__childs">CART</div>
+                </div>
+            </div>
+           
+        </div>
+    
+    </div>
+
+
+    <div class="main descriptionScrollTo">
+        <div class="video">
+            <div class="video__video1" >
+                <div class="video__videoimage">
+                <img src="img/pexels-photo-3178875.jpeg " class="video_videoimage_img">
+                <div class="video_videoimage_text">HEAVY DISCOUNTS</div>
+                <div class="video_videoimage_text2">50% DISCOUNT ON ALL PRODUCTS</div>
+                <button class="video_videoimage_dis">Discover</button>
+            </div>
+                <video  class="video__content" autoplay loop>
+                    <source src="vido/Brunette Saw Black Sandals and Enthusiastically Admires Them.mp4" type="video/mp4">
+                    <source src="/vido/Brunette Saw Black Sandals and Enthusiastically Admires Them.mp4" type="video/web">
+                </video>
+            </div>
+        </div>
+            
+        <!--DESCRIPTION VIEW-->
+        <div class="descriptionModal hidden">
+            <div class="description">
+                <!-- <img src="/img/image_ed92821e-8b62-47e8-a295-a40db23a93ae_large.jpg"  width="90%">
+                <div class="description--sub--div description__text20">
+                    <div>
+                        <h1>
+                            Name
+                        </h1> <br>
+                        <h1 id ='price'>Price</h1>
+                    </div>
+                </div> -->
+            </div>
+            <div class="descriptionBtns">
+                <button id="cart">Add To Cart</button>
+                <button class="descriptionCloseBtn">Close</button>
+            </div>
+        </div>
+
+        <!--CART VIEW-->
+        <div class="cart hidden" id="myCart">
+            <div>TOTAL AMOUNT IS : <span id="totalAmount"></span>Naira</div>
+            <button id="calculate">Calculate my purchases</button>
+            <button id="clear">Clear All</button>
+            <button id="checkout">Proceed to checkout</button>
+            
+        </div>
+
+        <!--PROFILE-->
+        <div class="profile hidden">
+            <div class="profile__account">My Account</div>
+            <div class="profile__list">
+                <div class="profile__detail-account">
+                    <h4 class="profile__detail" style="text-align: center;">Account Details</h4>
+                    <div>
+                    <h1>Username: <span class="profile__name" id="profileName">Philip Shaba</span></h1>
+                    <h1>Email Address: <span class="profile__name" id="profileEmail">Email: </span></h1>
+                    </div>
+                    
+                </div>
+                <div class="profile__order-history">
+                    <h4 class="profile__crt">Order history</h4>
+                    <span class="profile__yet">you haven't place any orders yet</span>
+                </div>
+                <div><button id="editProfileBtn">EDIT PROFILE</button></div>
+                <form action="#" class="profileForm visibility">
+                    <label for="Name">Name</label>
+                    <input type="text" placeholder="Enter Your New Username" id="editProfileName">
+                    <label for="email">Email Address</label>
+                    <input type="text" placeholder="Enter new Email address" id="editProfileEmail" required>
+                    <label for="password">Password</label>
+                    <input type="Password" placeholder="Enter new Password" id="editProfilePwd" required>
+                    <button type="submit" id="editProfileSubmitBtn">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <!--SEARCH RESULTS VIEW-->
+        <div class="searchResults hidden">
+            
+        </div>
+
+        
+        <!--MODAL -->
+        <div class="modal hidden ">
+            <h1 class="modalText"></h1>
+            <button class="modalBtn">OK</button>
+        </div>
+        <div class="overlay hidden"></div>
+
+        <!--LOGIN-->
+        <div class="login hidden login-container">
+            <div class="create__center">
+            Login
+            </div>
+            <form action="#" class="create__form">
+
+                <div class="create__group">
+                    <label for="email" class="create__label">Email Address</label>
+                    <input type="text" class="create__input" placeholder="Email address" id="emaillog" required>
+                </div>
+
+                <div class="create__group">
+                    <label for="password" class="create__label">Password</label>
+                    <input type="Password" class="create__input" placeholder="Password" id="passwordlog" required>
+                </div>
+
+            </form>
+            <a href="#" class="create__btn signinBtn btn-animated">Log in</a>
+        </div>
+
+        <!--REGISTER-->
+        <div class="create hidden create-container">
+            <div class="create__center">
+                Create Account
+            </div>
+            <form action="#" class="create__form">
+                <div class="create__group">
+                    <label for="name" class="create__label">Full Name</label>
+                    <input type="text" class="create__input" placeholder="Enter Your Full Name Here" id="fullname" required>
+                </div>
+
+                <div class="create__group">
+                    <label for="name" class="create__label">Phone Number</label>
+                    <input type="text" class="create__input" placeholder="Phone Number" id="phone" required>
+                </div>
+
+                <div class="create__group">
+                    <label for="name" class="create__label">Email</label>
+                    <input type="text" class="create__input" placeholder="Email address" id="emailreg" required>
+                </div>
+
+                <div class="create__group">
+                    <label for="name" class="create__label">Password</label>
+                    <input type="password" class="create__input" placeholder="password" id="passwordreg" required>
+                </div>
+            </form>
+            
+        <a href="#" class="create__btn registerBtn btn-animated">Create</a>
+            <div class="create__ret">
+                <div class="create__ret1"><a href="#">Return to store</div></a>
+                <div class="create__ret2"><a href="#">Log in</div></a>
+            </div>
+        </div>
+
+        <!----------------------admin-dashboard---------------------->
+    <div class="admin hidden">
+        <div class="admin">
+            <div class="admin__header">
+              <a href="#" class="logo">
+                <img src="img/p1.jpg" alt="pix" width="30px"height="20px">
+                <div  class="email">Philip@gmail.com</div>
+              </a>
+              <div class="toolbar">
+                <button class="btn btn--primary">Add New Product</button>
+                <button class="btn btn--primary">Remove Product</button>
+                <a href="#" class="logout">
+                  Log Out
+                </a>
+              </div>
+            </div>
+            <nav class="admin__nav">
+              <ul class="menu">
+                <li class="menu__item">
+                  <a class="menu__link" href="#">Dashboard</a>
+                </li>
+                <li class="menu__item">
+                  <a class="menu__link" href="#" id="totalProducts">Products</a>
+                </li>
+                <li class="menu__item">
+                  <a class="menu__link" href="#">Statistics</a>
+                </li>
+                <li class="menu__item">
+                  <a class="menu__link" href="#">Orders</a>
+                </li>
+                <li class="menu__item">
+                  <a class="menu__link" href="#">Sellers</a>
+                </li>
+              </ul>
+            </nav>
+            <main class="admin__main hidden" id="admin--display">
+                <div id='admin--display'>
+                    <div id='products--display' class="oneByOne">
+                        <div class="productAddStyle">
+                            <button id="addProductBtn">Add A Product</button>
+                            <div id='addingProductAdmin' class="hidden">
+                                <form name="addProductForm" enctype="multipart/form-data" action="https://shopappanter.herokuapp.com/api/users/products" method="post">
+                                    
+                                    <label for="" class="create__label">Name:</label>
+                                    <input type="text" class="" placeholder="Name of product" id="name">
+                                
+                                    <label for="" class="create__label">Price:</label>
+                                    <input type="text" class="" placeholder="Price" id="price">
+
+                                    <label for="" class="create__label">Select Image:</label>
+                                    <input type="file" name="image" id="imageUpload">
+                                
+                                    <label for="" class="create__label">Category:</label>
+                                    <input type="text" class="" placeholder="Pants, Shirts..." id="category1">
+                                
+                                    <label for="" class="create__label">Brand:</label>
+                                    <input type="text" class="" placeholder="Brand" id="brand1"> 
+                                
+                                    <label for="" class="create__label">Description</label>
+                                    <input type="text" class="" placeholder="Describe Your Product" id="description">
+                               
+                                    <label for="" class="create__label">Rating:</label>
+                                    <input type="number" class="" placeholder="Rate your Product" id="rating">
+                                
+                                    <label for="" class="create__label">Count in Stock:</label>
+                                    <input type="number" class="" placeholder="" id="countInStock">
+                                
+                                    <label for="" class="create__label">Number of Reviews:</label>
+                                    <input type="number" class="" placeholder="" id="numReviews">
+                              
+                                    <button id="addingNow">ADD</button>
+                                </form>
+                                <hr>
+                            </div>
+                            
+    
+                        </div>
+                        <div id="categories--admin">
+                            <div class="editingAdmin hidden">
+                                <h4>EDIT A PRODUCT</h4>
+                    
+                                <label for="" class="create__label">Name:</label>
+                                <input type="text" class="" placeholder="Name of product" id="name--edit">
+                            
+                                <label for="" class="create__label">Price:</label>
+                                <input type="text" class="" placeholder="Price" id="price--edit">
+                            
+                                <label for="" class="create__label">Category:</label>
+                                <input type="text" class="" placeholder="Pants, Shirts..." id="category1--edit">
+                            
+                                <label for="" class="create__label">Brand:</label>
+                                <input type="text" class="" placeholder="Brand" id="brand1--edit"> 
+                            
+                                <label for="" class="create__label">Description:</label>
+                                <input type="text" class="" placeholder="Describe Your Product" id="description1Input">
+                           
+                                <label for="" class="create__label">Count in Stock:</label>
+                                <input type="text" class="" placeholder="" id="countInStock--edit">
+                                
+                                <button id="saveChanges">Save Changes</button>
+                                </div>
+
+                                <div class="categoryDisplay ">
+                                    flkdfjkd
+                                </div>
+              <!-- <h2>Dashboard</h2>
+              <div class="dashboard">
+                <div class="dashboard__item">
+                  <div class="card">
+                    <strong>1,042</strong><i style="color: aqua;" class="fa fa-eye"></i>
+                    <p class="card__writeup">Daily Views</p>
+                  </div>
+                </div>
+                <div class="dashboard__item">
+                  <div class="card">
+                    <strong>80</strong> <i style="color: aqua;" class="fa fa-cart-plus"></i>
+                    <p class="card__writeup">Sales</p>
+                  </div>
+                </div>
+
+                <div class="dashboard__item">
+                    <div class="card">
+                        
+                            <strong class="card__amount">208</strong>
+                            <i style="color: aqua;" class="fa fa-comment"></i>
+                        
+                      
+                      <p class="card__writeup">Comments</p>
+                    </div>
+                </div>
+
+                <div class="dashboard__item">
+                    <div class="card">
+                      <strong>$6,042</strong><i style="color: aqua;" class="fa fa-dollar"></i>
+                      <p class="card__writeup">Earning</p>
+                    </div>
+                 </div>
+                <div class="dashboard__item dashboard__item--full">
+                  
+                </div>
+                <div class="dashboard__item dashboard__item--col">
+                    <div class="dashboard__item__order2">
+
+                        
+                        <div class="dashboard__item__order">
+                            <div class="dashboard__item__order__recent" style="font-size:10px; font-weight: 300; text-transform: uppercase;">Recent Order</div>
+                            <div class="dashboard__item__order__view">view all</div>
+                        </div>
+
+                        <table>
+                            <tr>
+                                <th >Name</th>
+                                <th>Price</th>
+                                <th>Payment</th>
+                                <th>Status</th>
+                            </tr>
+
+                            <tr>
+                                <td>Jacket</td>
+                                <td>$179</td>
+                                <td>paid</td>
+                                <td style="background-color: red; border-radius: 2px; cursor: pointer;">return</td>
+                            </tr>
+
+                            <tr>
+                                <td>Bag</td>
+                                <td>$199</td>
+                                <td>paid</td>
+                                <td style="background-color: rgb(220, 233, 38); border-radius: 2px; cursor: pointer;">pending</td>
+                            </tr>
+
+                            <tr>
+                                <td>T-Shirt</td>
+                                <td>$399</td>
+                                <td>paid</td>
+                                <td style="background-color: rgb(66, 224, 66); border-radius: 2px; cursor: pointer;">Delivered</td>
+                            </tr>
+
+                            <tr>
+                                <td>wristwatch</td>
+                                <td>$399</td>
+                                <td>paid</td>
+                                <td style="background-color: rgb(74, 212, 74); border-radius: 2px; cursor: pointer;">Delivered</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="dashboard__item dashboard__item--col">
+                    
+                  <div class="card">
+                      <div class="card__customers">R</div>
+                  </div>
+                </div>
+                <div class="dashboard__item dashboard__item--col">
+                  <div class="card">C</div>
+                </div>
+                <div class="dashboard__item dashboard__item--col">
+                  <div class="card">D</div>
+                </div>
+              </div> -->
+             
+            </main>
+            
+           
+          </div>
+    </div>
+
+
+        <div class="category">
+            <div class="category__view">
+                Featured 
+            </div> 
+
+            <div class="category__view2">
+                Products
+            </div>  
+            <div class="category__jacket">PANTS</div>
+        </div>
+
+        <div class="grid">
+            <div class="grid__female allImages" id='allImages--pants'>
+                <div class="grid__female__shoe loaded">
+                <a><img src="./img/defaultPant.png"class="grid__female__shoe__img1 " width="100px"></a>
+                    
+                    <h2 class="grid__female__shoe__remain"></h2>
+                    <!-- <p class="grid__female__shoe__always">Always With You </p> -->
+                    <!-- <p class="grid__female__shoe__cardi">Cardi</p> -->
+                    <span class="grid__female__shoe__price"></span>
+                </div>
+
+                <div class="grid__female__shoe loaded">
+                    <a> <img src="./img/defaultPant.png"class="grid__female__shoe__img1 " width="100px"></a>
+                    
+                    <h2 class="grid__female__shoe__remain"></h2>
+                    <!-- <p class="grid__female__shoe__always">Bobby Jacket </p> -->
+                
+                    <!-- <p class="grid__female__shoe__cardi">Sold Out</p> -->
+                    <span class="./img/defaultPant.png"></span>
+                </div>
+
+                <div class="grid__female__shoe loaded">
+                    <a> <img src="./img/defaultPant.png"class="grid__female__shoe__img1 " width="100px"></a>
+                
+                    <h2 class="grid__female__shoe__remain"></h2>
+                    <!-- <p class="grid__female__shoe__always">Cait Cardi </p> -->
+                    <!-- <p class="grid__female__shoe__cardi"></p> -->
+                    <span class="grid__female__shoe__price"></span>
+                </div>
+
+                <div class="grid__female__shoe loaded">
+                    <a> <img  src="./img/defaultPant.png"class="grid__female__shoe__img1 " width="100px"></a>
+                
+                    <h2 class="grid__female__shoe__remain"> </h2>
+                    <!-- <p class="grid__female__shoe__always">Clement Coat</p> -->
+                    <!-- <p class="grid__female__shoe__cardi"></p> -->
+                    <span class="grid__female__shoe__price"></span>
+                </div>
+
+                <div class="grid__female__shoe loaded">
+                    <a><img src="./img/defaultPant.png"class="grid__female__shoe__img1 " width="100px"></a>
+                    
+                    <h2 class="grid__female__shoe__remain"></h2>
+                    <!-- <p class="grid__female__shoe__always">Always With You </p> -->
+                    <!-- <p class="grid__female__shoe__cardi">Cardi</p> -->
+                    <span class="grid__female__shoe__price"></span>
+                </div>
+    
+                <div class="grid__female__shoe loaded">
+                    <a> <img  src="./img/defaultPant.png"class="grid__female__shoe__img1 " width="100px"></a>
+                    
+                    <h2 class="grid__female__shoe__remain"></h2>
+                    <!-- <p class="grid__female__shoe__always">Bobby Jacket </p> -->
+                    
+                    <!-- <p class="grid__female__shoe__cardi">Sold Out</p> -->
+                    <span class="grid__female__shoe__price"></span>
+                </div>
+    
+                <div class="grid__female__shoe loaded">
+                    <a> <img src="./img/defaultPant.png"class="grid__female__shoe__img1 " width="100px"></a>
+                    
+                    <h2 class="grid__female__shoe__remain"></h2>
+                    <!-- <p class="grid__female__shoe__always">Cait Cardi </p> -->
+                    <!-- <p class="grid__female__shoe__cardi"></p> -->
+                    <span class="grid__female__shoe__price"></span>
+                </div>
+    
+                <div class="grid__female__shoe loaded">
+                    <a> <img  src="./img/defaultPant.png"class="grid__female__shoe__img1 " width="100px"></a>
+                    
+                    <h2 class="grid__female__shoe__remain"></h2>
+                    <!-- <p class="grid__female__shoe__always">Clement Coat</p> -->
+                    <!-- <p class="grid__female__shoe__cardi"></p> -->
+                    <span class="grid__female__shoe__price"></span>
+                </div>
+                <div class="grid__female__shoe loaded">
+                    <a> <img src="./img/defaultPant.png"class="grid__female__shoe__img1 " width="100px"></a>
+                
+                    <h2 class="grid__female__shoe__remain"> </h2>
+                    <!-- <p class="grid__female__shoe__always">Clement Coat</p> -->
+                    <!-- <p class="grid__female__shoe__cardi"></p> -->
+                    <span class="grid__female__shoe__price"></span>
+                </div>
+
+                
+            </div>
+            <div class="seeMoreDiv"><button id="seeMorePants">SEE MORE</button></div>
+            
+            
+            <div class="grid__menswear">SHIRTS</div>
+
+            <!--MENS WEAR START-->
+            <div class="grid__shoe1 allImages" id='allImages--shirts'>
+            
+                <div class="grid__shoe1__men loaded">
+                    <a><img src="./img/defaultShirt.png"class="grid__shoe1__men__img5 " width="100px"></a>
+                    
+                    <h2 class="grid__shoe1__men__red"></h2>
+                    <!-- <p class="grid__shoe1__men__nike">Nike </p> -->
+                    <!-- <p class="grid__shoe__cardi"></p> -->
+                    <span class="grid__shoe1__men__price2"></span>
+                </div>
+
+                <div class="grid__shoe1__men loaded">
+                    <a> <img src="./img/defaultShirt.png"class="grid__shoe1__men__img5 " width="100px"></a>
+                    
+                
+                    <h2 class="grid__shoe1__men__red"></h2>
+                    <!-- <p class="grid__shoe1__men__nike">Bobby Jacket </p> -->
+                    <!-- <p class="grid__shoe__cardi"></p> -->
+                    <span class="grid__shoe1__men__price2"></span>
+                </div>
+
+                <div class="grid__shoe1__men loaded">
+                    <a>  <img src="./img/defaultShirt.png"class="grid__shoe1__men__img5 " width="100px"></a>
+                
+                
+                    <h2 class="grid__shoe1__men__red"></h2>
+                    <!-- <p class="grid__shoe1__men__nike">Cait Cardi </p> -->
+                    
+                    <!-- <p class="grid__shoe1__men__cardi">Sold Out</p> -->
+                    <span class="grid__shoe1__men__price2"></span>
+                </div>
+
+                <div class="grid__shoe1__men loaded">
+                    <a> <img src="./img/defaultShirt.png"class="grid__shoe1__men__img5 " width="100px"></a>
+                
+                    <h2 class="grid__shoe1__men__red"></h2>
+                    <!-- <p class="grid__shoe1__men__nike">Clement Coat</p> -->
+                    <!-- <p class="grid__shoe__cardi"></p> -->
+                    <span class="grid__shoe1__men__price2"></span>
+                </div>
+
+                <div class="grid__shoe1__men loaded">
+                    <a><img src="./img/defaultShirt.png"class="grid__shoe1__men__img5 " width="100px"></a>
+                    
+                    <h2 class="grid__shoe1__men__red"></h2>
+                    <!-- <p class="grid__shoe1__men__nike">Nike </p> -->
+                    <!-- <p class="grid__shoe__cardi"></p> -->
+                    <span class="grid__shoe1__men__price2"></span>
+                </div>
+
+                <div class="grid__shoe1__men loaded">
+                    <a> <img src="./img/defaultShirt.png"class="grid__shoe1__men__img5 " width="100px"></a>
+                    
+                
+                    <h2 class="grid__shoe1__men__red"></h2>
+                    <!-- <p class="grid__shoe1__men__nike">Bobby Jacket </p> -->
+                    <!-- <p class="grid__shoe__cardi"></p> -->
+                    <span class="grid__shoe1__men__price2"></span>
+                </div>
+
+                <div class="grid__shoe1__men loaded">
+                    <a>  <img src="./img/defaultShirt.png"class="grid__shoe1__men__img5 " width="100px"></a>
+                
+                
+                    <h2 class="grid__shoe1__men__red"></h2>
+                    <!-- <p class="grid__shoe1__men__nike">Cait Cardi </p> -->
+                    
+                    <!-- <p class="grid__shoe1__men__cardi">Sold Out</p> -->
+                    <span class="grid__shoe1__men__price2"></span>
+                </div>
+
+                <div class="grid__shoe1__men loaded">
+                    <a> <img src="./img/defaultShirt.png"class="grid__shoe1__men__img5 " width="100px"></a>
+                
+                    <h2 class="grid__shoe1__men__red"></h2>
+                    <!-- <p class="grid__shoe1__men__nike">Clement Coat</p> -->
+                    <!-- <p class="grid__shoe__cardi"></p> -->
+                    <span class="grid__shoe1__men__price2"></span>
+                </div>
+                <div class="grid__shoe1__men loaded">
+                    <a> <img src="./img/defaultShirt.png"class="grid__shoe1__men__img5 " width="100px"></a>
+                
+                    <h2 class="grid__shoe1__men__red"></h2>
+                    <!-- <p class="grid__shoe1__men__nike">Clement Coat</p> -->
+                    <!-- <p class="grid__shoe__cardi"></p> -->
+                    <span class="grid__shoe1__men__price2"></span>
+                </div>
+
+            </div>
+            <div class="seeMoreDiv"><button id="seeMoreShirts">SEE MORE</button></div>
+        
+            <!---------------------------MENS WEAR END----------------------->
+
+            
+        </div>
+
+        <div class="background">
+        <h2 class="background__friday">BLACK FRIDAY! SHOP FOR YOUR GIRLFRIEND</h2>
+        </div>
+
+        <div class="footer">
+            <div class="footer__cut">
+
+
+                <div class="footer__custs">
+                
+                    <div class="footer__customer">Customers Care</div>
+                    <div class="footer__contact">
+                        <ul class="footer__contact__list">
+                            <li class="footer__contact__list__name">Contact us</li>
+                            <li class="footer__contact__list__name">faq</li>
+                            <li class="footer__contact__list__name">the story</li>
+                            <li class="footer__contact__list__name">store location</li>
+                            <li class="footer__contact__list__name">blog</li>
+                            <li class="footer__contact__list__name">carrers</li>
+                            <li class="footer__contact__list__name">terms of use</li>
+                            <li class="footer__contact__list__name">shipping</li>
+                            <li class="footer__contact__list__name">returns</li>
+                            <li class="footer__contact__list__name">privacy policy</li>
+                        </ul>
+                    </div>
+                </div>
+                
+            
+
+                <div class="footer__about">
+                    <div class="footer__about1">ABOUT US</div>
+                    <!-- <div class="footer__about1__hebe">hebe, hebe</div> -->
+                    <div class="footer__about1__fashion">Curators of ethical fashion and New Zealand designed. </div>
+                    <div class="footer__about1__style">Hebe is a destination for style seekers. Located in Masterton's boutique Kuripuni Village, Hebe is lovingly and carefully curated by Owner and Buyer, Dani Burkhart. Dedicated to NZ designed, ethical fashion and accessories- Hebe is a beautiful style edit. </div>
+                </div>
+
+                <div class="footer__newsletter">
+                    <div class="footer__newsletter1">NEWS LETTER</div>
+                    <div class="footer__mail">Join our mailing list</div>
+                    <div class="footer__input">
+                        <input type="text" class="footer__input44" placeholder=""><button class="footer__bot">Subscribe</button> 
+                    </div>
+                </div>
+
+            </div>
+                
+        <div class="footer__image">
+            <img src="img/cap1.PNG">
+            <img src="img/master.PNG">
+            <img src="img/Capture.PNG">
+            <img src="img/visa.PNG"style="margin-top:10px";>
+
+        </div>
+
+            <div class="footer__media">
+            <div class="footer__facebook">
+                <svg class="footer__face">
+                    <use xlink:href="img/sprite.svg#icon-facebook2"></use>
+                </svg>
+            </div>
+
+
+            <div class="footer__instagram">
+                <svg class="footer__inst">
+                    <use xlink:href="img/sprite.svg#icon-instagram"></use>
+                </svg>
+                </div>   
+            </div>
+        <div class="footer__copycat">
+                <div class="footer__copy">@COPYRIGHT HEBE DESIGNER BOUTIQUE 2021</div>
+                <div class="toTopBtn">Back To Top</div>
+        </div>
+        </div>
+    <a href="https://wa.me/+234806" class="footer__whatsapp_float" target="_blank"> <i class="fa fa-whatsapp footer__whatsapp-icon"></i></a>
+    
+    </div>
+
+</body>
+</html>
